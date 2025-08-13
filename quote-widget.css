@@ -1,0 +1,167 @@
+/* 
+  :root is the top-level selector; we declare CSS variables here for easy theming.
+*/
+:root {
+    /* A fluid spacing scale you can reuse across components. */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+  
+    /* Max width of the widget for nice readable lines. */
+    --content-max: 720px;
+  
+    /* Typography: a system font stack for good defaults. */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+                 Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  
+    /* Light theme colors (default). */
+    --bg: #ffffff;
+    --fg: #0f172a;     /* deep slate text */
+    --muted: #475569;  /* subtler text */
+    --primary: #000000;/* blue for focus/brand */
+    --card: #f1f5f9;   /* soft panel background */
+    --ring: #93c5fd;   /* outline glow color */
+    --tg: #ffffff;
+  }
+  
+  /* Respect OS-level dark mode automatically. */
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #161414;
+      --fg: #e5e7eb;
+      --muted: #9aa4b2;
+      --primary: #ffffff;
+      --card: #222325;
+      --ring: #ffffff;
+      --tg: #000000;
+    }
+  }
+  
+  /* Reset margins and set base font across page. */
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  
+  body {
+    margin: 0;                     /* Remove default margin. */
+    font-family: var(--font-sans); /* Use our font stack. */
+    color: var(--fg);              /* Default text color. */
+    background: radial-gradient(   /* A light radial background for subtle depth. */
+      circle at 20% 10%,
+      rgba(99, 102, 241, 0.08),
+      transparent 30%
+    ), var(--bg);
+    line-height: 1.6;              /* Comfortable reading. */
+    display: grid;                 /* Center content vertically/horizontally. */
+    place-items: center;
+    padding: var(--space-8);
+  }
+  
+  /* Constrain main content width and center it. */
+  main {
+    width: 100%;
+    max-width: var(--content-max);
+  }
+  
+  /* The widget card container. */
+  .quote-widget {
+    background: var(--card);
+    border: 1px solid rgba(148, 163, 184, 0.2);   /* subtle border */
+    border-radius: 16px;                           /* rounded corners */
+    padding: var(--space-8);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);  /* soft shadow */
+  }
+  
+  /* Title style. */
+  .title {
+    margin: 0 0 var(--space-6) 0;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem); /* Responsive font sizing. */
+    letter-spacing: 0.3px;
+  }
+  
+  /* Layout the quote area. */
+  .quote-box {
+    margin: 0 0 var(--space-6) 0;
+  }
+  
+  /* The quoted text itself. */
+  #quote {
+    margin: 0;
+    font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+    font-weight: 600;
+  }
+  
+  /* The author line styling. */
+  #author {
+    margin-top: var(--space-3);
+    color: var(--muted);
+    font-style: italic;
+  }
+  
+  /* Control buttons row. */
+  .controls {
+    display: flex;
+    gap: var(--space-3);     /* space between buttons */
+    flex-wrap: wrap;         /* wrap on small screens */
+  }
+  
+  /* Base button styling. */
+  button {
+    appearance: none;                /* normalize across browsers */
+    border: 1px solid transparent;   /* border for focus/hover transitions */
+    border-radius: 10px;
+    padding: var(--space-3) var(--space-6);
+    font: inherit;                   /* inherit font settings from body */
+    cursor: pointer;
+    background: var(--primary);
+    color: var(--tg);
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+  }
+  
+  /* Hover gives a subtle lift. */
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(2, 6, 23, 0.25);
+  }
+  
+  /* Keyboard focus ring for accessibility. */
+  button:focus-visible {
+    outline: none;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 4px rgba(147, 197, 253, 0.35);
+  }
+  
+  /* Secondary-looking button style using a data attribute if needed later.
+     (Not used now, but shows how to theme variants.) */
+  button[data-variant="secondary"] {
+    background: transparent;
+    color: var(--fg);
+    border-color: rgba(148,163,184,0.4);
+  }
+  
+  /* Fade animation class we toggle in JS. */
+  .fade {
+    animation: fadeIn 280ms ease;
+  }
+  
+  /* Keyframes define opacity transition for .fade. */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(2px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+  
+  #copy-quote {
+    display: flex;                /* center the icon */
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3);       /* smaller padding for icon */
+    width: 40px;                   /* make it square */
+    height: 40px;
+  }
+  
+  #copy-quote svg {
+    pointer-events: none;          /* clicks go to button, not SVG */
+  }
+  

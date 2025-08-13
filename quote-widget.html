@@ -1,0 +1,60 @@
+<!--
+  <!DOCTYPE html> tells the browser to use HTML5 standards mode.
+-->
+<!DOCTYPE html>
+<!-- The root element of an HTML page; lang="en" helps screen readers and SEO. -->
+<html lang="en">
+<head>
+  <!-- Sets the character encoding so all characters (like quotes “ ”) render correctly. -->
+  <meta charset="UTF-8" />
+  <!-- Ensures proper scaling on phones: width = device width; initial zoom = 1. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- The tab title shown in the browser. -->
+  <title>InspireMe — Random Quote Generator</title>
+  <!-- Link our stylesheet file to style this page. -->
+  <link rel="stylesheet" href="quote-widget.css" />
+  <!-- Load our JS *after* HTML is parsed so elements exist when JS runs. -->
+  <script src="quote-widget.js" defer></script>
+</head>
+
+<!-- The visible content of the page starts here. -->
+<body>
+  <!-- A semantic wrapper for the main content; assists accessibility. -->
+  <main>
+    <!-- The widget region; role/aria-label help assistive tech describe this section. -->
+    <section id="inspireme-widget" class="quote-widget" role="region" aria-label="Random quote generator">
+      <!-- A heading for the widget. Screen readers also use this for quick navigation. -->
+      <h1 class="title">InspireMe</h1>
+
+      <!-- figure groups a quote (blockquote) with its caption (author). -->
+      <figure class="quote-box">
+        <!--
+          blockquote is for quoted text.
+          id="quote" lets JS find/update this element.
+          aria-live="polite" asks screen readers to announce updates without interrupting.
+          cite attribute can hold a source/author hint.
+        -->
+        <blockquote id="quote" aria-live="polite" cite=""></blockquote>
+
+        <!-- figcaption labels the figure; here we show the author. -->
+        <figcaption id="author"></figcaption>
+      </figure>
+
+      <!-- Controls row for actions. -->
+      <div class="controls">
+        <!-- type="button" prevents form submission behavior (even if inside a form). -->
+        <button id="new-quote" type="button" aria-label="Show a new random quote">Inspire</button>
+        <button id="copy-quote" type="button" aria-label="Copy the current quote to clipboard">
+            <!-- SVG Copy Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                 viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 
+                       .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 
+                       2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+        </button>          
+      </div>
+    </section>
+  </main>
+</body>
+</html>

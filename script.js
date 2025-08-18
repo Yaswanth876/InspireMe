@@ -51,7 +51,7 @@ const quotes = [
   { text: "Soylent Green is people!", author: "Shocked Citizen" },
   { text: "Open the pod bay doors, HAL.", author: "Dave Bowman" },
   { text: "Yo, Adrian!", author: "Rocky Balboa" },
-  { text: "My precious.", author: "Gollum" }
+  { text: "My precious.", author: "Gollum" },
   { text: "Things won't get better, Unless you think better...", author: "Kiruthicka"}
 ];
 

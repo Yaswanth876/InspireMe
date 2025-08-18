@@ -28,7 +28,7 @@
   }
   
   /* Respect OS-level dark mode automatically. */
-  @media (prefers-color-scheme: light) {
+  @media (prefers-color-scheme: dark) {
     :root {
       --bg: #161414;
       --fg: #e5e7eb;

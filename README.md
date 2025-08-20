@@ -3,7 +3,7 @@
 InspireMe is a simple and elegant web app that delivers motivational quotes to brighten your day.  
 Built with **HTML, CSS, and JavaScript**, and hosted on **Netlify**, it’s lightweight, fast, and mobile-friendly.
 
-🔗 **Live Demo:** [Click Here](https://your-netlify-link.netlify.app/)  
+🔗 **Live Demo:** [Click Here](https://inspire-mee.netlify.app/)
 
 ---
 
@@ -18,7 +18,7 @@ Built with **HTML, CSS, and JavaScript**, and hosted on **Netlify**, it’s ligh
 
 ## 📸 Demo Preview
 
-![InspireMe Screenshot](screenshot.png)  
+![InspireMe Screenshot](Screenshot.png)  
 *(Add a screenshot of your app in action here)*
 
 ---
@@ -56,5 +56,5 @@ cd InspireMe
 
 **Yaswanth V**
 - 🎓 B.E. CSE (AI & ML) @ TCE
-- 💻 GitHub
-- 🔗 LinkedIn
+- 💻 [GitHub](https://github.com/yaswanth876)
+- 🔗 [LinkedIn](www.linkedin.com/in/yaswanthv876)
